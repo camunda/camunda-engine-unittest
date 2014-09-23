@@ -12,21 +12,18 @@
  */
 package org.camunda.bpm.unittest;
 
-import org.camunda.bpm.engine.RuntimeService;
-import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
-import org.camunda.bpm.engine.task.Task;
 import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.engine.test.ProcessEngineRule;
 
-import static org.junit.Assert.*;
+import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.*;
 
 import org.junit.Rule;
 import org.junit.Test;
 
 /**
  * @author Daniel Meyer
- *
+ * @author Martin Schimak
  */
 public class SimpleTestCase {
 
@@ -36,23 +33,18 @@ public class SimpleTestCase {
   @Test
   @Deployment(resources = {"testProcess.bpmn"})
   public void shouldExecuteProcess() {
-
-    RuntimeService runtimeService = rule.getRuntimeService();
-    TaskService taskService = rule.getTaskService();
-
-    ProcessInstance pi = runtimeService.startProcessInstanceByKey("testProcess");
-    assertFalse("Process instance should not be ended", pi.isEnded());
-    assertEquals(1, runtimeService.createProcessInstanceQuery().count());
-
-    Task task = taskService.createTaskQuery().singleResult();
-    assertNotNull("Task should exist", task);
-
-    // complete the task
-    taskService.complete(task.getId());
-
-    // now the process instance should be ended
-    assertEquals(0, runtimeService.createProcessInstanceQuery().count());
-
+    // Given we create a new process instance
+    ProcessInstance processInstance = runtimeService().startProcessInstanceByKey("testProcess");
+    // Then it should be active
+    assertThat(processInstance).isActive();
+    // And it should be the only instance
+    assertThat(processInstanceQuery().count()).isEqualTo(1);
+    // And there should exist just a single task within that process instance
+    assertThat(task(processInstance)).isNotNull();
+    // When we complete that task 
+    complete(task(processInstance));
+    // Then the process instance should be ended
+    assertThat(processInstance).isEnded();
   }
 
 }
