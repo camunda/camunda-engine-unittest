@@ -22,7 +22,7 @@ src/
 ```
 Explanation:
 
-* (1) A java class containing a JUnit Test. It uses the `ProcessEngineRule` for bootstrapping the process engine, as well as camunda-bpm-assert to make your test life easier.
+* (1) A java class containing a JUnit Test. It uses the `ProcessEngineRule` for bootstrapping the process engine, as well as [camunda-bpm-assert][assert] to make your test life easier.
 * (2) Configuration file for the process engine.
 * (3) An example BPMN process.
 
@@ -38,3 +38,4 @@ mvn clean test
 
 If you use eclipse you can simply import the project by selecting `File / Import |-> Existing Maven Projects.
 
+[assert]: https://github.com/camunda/camunda-bpm-assert
