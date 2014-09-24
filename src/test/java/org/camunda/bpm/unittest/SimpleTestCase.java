@@ -38,7 +38,7 @@ public class SimpleTestCase {
     // Then it should be active
     assertThat(processInstance).isActive();
     // And it should be the only instance
-    assertThat(processInstanceQuery().count()).isEqualTo(1);
+    assertThat(processDefinition(processInstance)).hasActiveInstances(1);
     // And there should exist just a single task within that process instance
     assertThat(task(processInstance)).isNotNull();
 
