@@ -19,13 +19,13 @@
 
     <property name="history" value="full" />
 
-    <property name="customPostBPMNParseListeners">
+    <!-- <property name="customPostBPMNParseListeners">
       <list>
         <bean class="org.camunda.bpm.engine.impl.bpmn.parser.FoxFailedJobParseListener" />
       </list>
-    </property>
+    </property> -->
 
-    <property name="failedJobCommandFactory" ref="foxFailedJobCommandFactory" />
+    <!-- <property name="failedJobCommandFactory" ref="foxFailedJobCommandFactory" /> -->
 
     <!--<property name="idGenerator" ref="uuidGenerator" />-->
 
@@ -39,7 +39,7 @@
 
   </bean>
 
-  <bean id="foxFailedJobCommandFactory" class="org.camunda.bpm.engine.impl.jobexecutor.FoxFailedJobCommandFactory" />
+  <!-- <bean id="foxFailedJobCommandFactory" class="org.camunda.bpm.engine.impl.jobexecutor.FoxFailedJobCommandFactory" /> -->
 
   <!--<bean id="uuidGenerator" class="org.camunda.bpm.engine.impl.persistence.StrongUuidGenerator" />-->
 
