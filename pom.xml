@@ -6,6 +6,8 @@
   <packaging>jar</packaging>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  
     <!-- set the version for camunda BPM here -->
     <version.camunda>7.10.0</version.camunda>
     <version.junit>4.11</version.junit>
