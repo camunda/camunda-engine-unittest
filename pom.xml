@@ -10,6 +10,12 @@
     <version.camunda>7.10.0</version.camunda>
     <version.junit>4.11</version.junit>
     <version.h2>1.4.190</version.h2>
+    
+    <!-- set the java version here -->
+    <version.java>1.7</version.java>
+    
+    <!-- set the plugin versions here -->
+    <version.plugin.compiler>3.1</version.plugin.compiler>
   </properties>
 
   <dependencyManagement>
@@ -106,6 +112,20 @@
     </dependency>
 
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.plugin.compiler}</version>
+        <configuration>
+          <source>${version.java}</source>
+          <target>${version.java}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
 
