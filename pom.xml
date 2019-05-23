@@ -9,9 +9,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   
     <!-- set the version for camunda BPM here -->
-    <version.camunda>7.10.0</version.camunda>
+    <version.camunda>7.11.0</version.camunda>
     <version.junit>4.11</version.junit>
     <version.h2>1.4.190</version.h2>
+    <version.assertj>2.9.0</version.assertj>
     
     <!-- set the java version here -->
     <version.java>1.7</version.java>
@@ -30,14 +31,15 @@
         <version>${version.camunda}</version>
       </dependency>
       <dependency>
-        <groupId>org.camunda.bpm.extension</groupId>
-        <artifactId>camunda-bpm-assert</artifactId>
-        <version>1.2</version>
+        <groupId>org.camunda.bpm.assert</groupId>
+        <artifactId>camunda-bpm-assert-assertj2</artifactId>
+        <version>4.0.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
+    
 
     <!-- camunda process engine -->
     <dependency>
@@ -94,15 +96,22 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <scope>test</scope>
       <version>${version.junit}</version>
+      <scope>test</scope>
+    </dependency>
+  
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${version.assertj}</version>
+      <scope>test</scope>
     </dependency>
 
     <!-- camunda BPM assert -->
     <dependency>
-      <groupId>org.camunda.bpm.extension</groupId>
-      <artifactId>camunda-bpm-assert</artifactId>
-      <scope>provided</scope>
+      <groupId>org.camunda.bpm.assert</groupId>
+      <artifactId>camunda-bpm-assert-assertj2</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <!-- database -->
