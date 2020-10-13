@@ -10,7 +10,7 @@
   
     <!-- set the version for camunda BPM here -->
     <version.camunda>7.14.0</version.camunda>
-    <version.junit>4.12</version.junit>
+    <version.junit>4.13.1</version.junit>
     <version.h2>1.4.190</version.h2>
     <version.assertj>3.16.1</version.assertj>
     
