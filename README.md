@@ -1,6 +1,6 @@
 # camunda engine unit test template
 
-This git repository contains a simple example of how to write a unit test for camunda bpm. You can use it for reporting bugs or asking questions in the forums.
+This git repository contains a simple example of how to write a unit test for Camunda Platform. You can use it for reporting bugs or asking questions in the forums.
 
 The project contains the following files:
 
@@ -38,11 +38,11 @@ mvn clean test
 
 If you use eclipse you can simply import the project by selecting `File / Import |-> Existing Maven Projects.
 
-[assert]: https://github.com/camunda/camunda-bpm-assert
-
 ## Contributing
 
 Have a look at our [contribution guide](https://github.com/camunda/camunda-bpm-platform/blob/master/CONTRIBUTING.md) for how to contribute to this repository.
 
 ## License
 The source files in this repository are made available under the [Apache License Version 2.0](./LICENSE).
+
+[assert]: https://github.com/camunda/camunda-bpm-assert
