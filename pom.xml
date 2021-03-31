@@ -7,18 +7,19 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  
+
     <!-- set the version for Camunda Platform here -->
-    <version.camunda>7.14.0</version.camunda>
-    <version.junit>4.12</version.junit>
+    <version.camunda>7.15.0</version.camunda>
+    <version.junit>4.13.1</version.junit>
     <version.h2>1.4.190</version.h2>
-    <version.assertj>3.16.1</version.assertj>
-    
+    <version.camunda.assert>10.0.0</version.camunda.assert>
+    <version.assertj>3.18.1</version.assertj>
+
     <!-- set the java version here -->
     <version.java>1.8</version.java>
-    
+
     <!-- set the plugin versions here -->
-    <version.plugin.compiler>3.1</version.plugin.compiler>
+    <version.plugin.compiler>3.8.1</version.plugin.compiler>
   </properties>
 
   <dependencyManagement>
@@ -33,13 +34,13 @@
       <dependency>
         <groupId>org.camunda.bpm.assert</groupId>
         <artifactId>camunda-bpm-assert</artifactId>
-        <version>8.0.0</version>
+        <version>${version.camunda.assert}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
-    
+
 
     <!-- camunda process engine -->
     <dependency>
@@ -115,7 +116,7 @@
       <scope>provided</scope>
       <version>${version.h2}</version>
     </dependency>
-    
+
     <!-- others -->
     <dependency>
       <groupId>org.slf4j</groupId>
