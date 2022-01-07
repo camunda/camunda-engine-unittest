@@ -11,7 +11,7 @@
     <!-- set the version for Camunda Platform here -->
     <version.camunda>7.16.0</version.camunda>
     <version.junit>4.13.1</version.junit>
-    <version.h2>1.4.200</version.h2>
+    <version.h2>2.0.206</version.h2>
     <version.camunda.assert>13.0.0</version.camunda.assert>
     <version.assertj>3.20.2</version.assertj>
 
