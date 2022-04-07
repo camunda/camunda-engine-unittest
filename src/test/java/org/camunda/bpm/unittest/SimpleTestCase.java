@@ -25,9 +25,9 @@ import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.task;
 
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
-import org.camunda.bpm.engine.test.ProcessEngineRule;
-import org.junit.Rule;
-import org.junit.Test;
+import org.camunda.bpm.engine.test.junit5.ProcessEngineExtension;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 /**
  * @author Daniel Meyer
@@ -35,8 +35,9 @@ import org.junit.Test;
  */
 public class SimpleTestCase {
 
-  @Rule
-  public ProcessEngineRule rule = new ProcessEngineRule();
+  @RegisterExtension
+  ProcessEngineExtension extension = ProcessEngineExtension.builder()
+    .build();
 
   @Test
   @Deployment(resources = {"testProcess.bpmn"})
