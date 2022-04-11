@@ -9,11 +9,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- set the version for Camunda Platform here -->
-    <version.camunda>7.16.0</version.camunda>
-    <version.junit>4.13.1</version.junit>
-    <version.h2>1.4.200</version.h2>
-    <version.camunda.assert>13.0.0</version.camunda.assert>
-    <version.assertj>3.20.2</version.assertj>
+    <version.camunda>7.17.0</version.camunda>
+    <version.junit>5.8.2</version.junit>
+    <version.h2>2.0.206</version.h2>
+    <version.assertj>3.21.0</version.assertj>
 
     <!-- set the java version here -->
     <version.java>1.8</version.java>
@@ -30,11 +29,6 @@
         <type>pom</type>
         <scope>import</scope>
         <version>${version.camunda}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.camunda.bpm.assert</groupId>
-        <artifactId>camunda-bpm-assert</artifactId>
-        <version>${version.camunda.assert}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -89,10 +83,10 @@
 
     <!-- junit -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
       <version>${version.junit}</version>
-      <scope>test</scope>
+      <scope>provided</scope>
     </dependency>
   
     <dependency>
@@ -104,8 +98,15 @@
 
     <!-- Camunda Platform assert -->
     <dependency>
-      <groupId>org.camunda.bpm.assert</groupId>
+      <groupId>org.camunda.bpm</groupId>
       <artifactId>camunda-bpm-assert</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JUnit 5 extension -->
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-bpm-junit5</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -127,7 +128,7 @@
     <dependency>
       <groupId>com.sun.xml.bind</groupId>
       <artifactId>jaxb-impl</artifactId>
-      <version>2.2.4</version>
+      <version>2.3.6</version>
     </dependency>
     
   </dependencies>
@@ -144,6 +145,14 @@
         </configuration>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
 </project>
