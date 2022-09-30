@@ -9,9 +9,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- set the version for Camunda Platform here -->
-    <version.camunda>7.17.0</version.camunda>
+    <version.camunda>7.18.0</version.camunda>
     <version.junit>5.8.2</version.junit>
-    <version.h2>2.0.206</version.h2>
+    <version.h2>2.1.214</version.h2>
     <version.assertj>3.21.0</version.assertj>
 
     <!-- set the java version here -->
@@ -122,7 +122,7 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>1.7.26</version>
+      <version>1.7.36</version>
     </dependency>
 
     <dependency>
