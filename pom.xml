@@ -9,16 +9,19 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- set the version for Camunda Platform here -->
-    <version.camunda>7.19.0</version.camunda>
-    <version.junit>5.9.2</version.junit>
+    <version.camunda>7.20.0</version.camunda>
+    <version.junit>5.10.0</version.junit>
     <version.h2>2.1.214</version.h2>
-    <version.assertj>3.21.0</version.assertj>
+    <version.assertj>3.24.2</version.assertj>
+    <version.slf4j>1.7.36</version.slf4j>
+    <version.jaxb-impl>2.3.6</version.jaxb-impl>
 
     <!-- set the java version here -->
-    <version.java>1.8</version.java>
+    <maven.compiler.release>11</maven.compiler.release>
 
     <!-- set the plugin versions here -->
-    <version.plugin.compiler>3.8.1</version.plugin.compiler>
+    <version.plugin.compiler>3.11.0</version.plugin.compiler>
+    <version.plugin.surefire>3.1.2</version.plugin.surefire>
   </properties>
 
   <dependencyManagement>
@@ -122,34 +125,29 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>1.7.36</version>
+      <version>${version.slf4j}</version>
     </dependency>
 
     <dependency>
       <groupId>com.sun.xml.bind</groupId>
       <artifactId>jaxb-impl</artifactId>
-      <version>2.3.6</version>
+      <version>${version.jaxb-impl}</version>
     </dependency>
     
   </dependencies>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${version.plugin.compiler}</version>
-        <configuration>
-          <source>${version.java}</source>
-          <target>${version.java}</target>
-        </configuration>
-      </plugin>
-    </plugins>
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.plugin.compiler}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.2</version>
+          <version>${version.plugin.surefire}</version>
         </plugin>
       </plugins>
     </pluginManagement>
