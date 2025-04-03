@@ -8,20 +8,20 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <!-- set the version for Camunda Platform here -->
-    <version.camunda>7.22.0</version.camunda>
-    <version.junit>5.11.0</version.junit>
+    <!-- set the version for Camunda 7 here -->
+    <version.camunda>7.23.0</version.camunda>
+    <version.junit>5.12.1</version.junit>
     <version.h2>2.3.232</version.h2>
-    <version.assertj>3.26.3</version.assertj>
-    <version.slf4j>2.0.16</version.slf4j>
+    <version.assertj>3.27.3</version.assertj>
+    <version.slf4j>2.0.17</version.slf4j>
     <version.jaxb-impl>2.3.6</version.jaxb-impl>
 
     <!-- set the java version here -->
     <maven.compiler.release>11</maven.compiler.release>
 
     <!-- set the plugin versions here -->
-    <version.plugin.compiler>3.11.0</version.plugin.compiler>
-    <version.plugin.surefire>3.1.2</version.plugin.surefire>
+    <version.plugin.compiler>3.14.0</version.plugin.compiler>
+    <version.plugin.surefire>3.5.3</version.plugin.surefire>
   </properties>
 
   <dependencyManagement>
