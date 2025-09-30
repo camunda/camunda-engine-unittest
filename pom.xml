@@ -9,7 +9,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- set the version for Camunda 7 here -->
-    <version.camunda>7.23.0</version.camunda>
+    <version.camunda>7.24.0</version.camunda>
     <version.junit>5.12.1</version.junit>
     <version.h2>2.3.232</version.h2>
     <version.assertj>3.27.3</version.assertj>
