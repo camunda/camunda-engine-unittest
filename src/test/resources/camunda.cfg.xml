@@ -18,9 +18,6 @@
     <property name="jobExecutorActivate" value="false" />
 
     <property name="history" value="full" />
-    
-    <!-- telemetry configuration -->
-    <property name="telemetryReporterActivate" value="false" />
 
     <!--<property name="idGenerator" ref="uuidGenerator" />-->
 
@@ -29,6 +26,7 @@
       <list>
         <ref bean="connectProcessEnginePlugin" />
         <ref bean="spinProcessEnginePlugin" />
+        <ref bean="variableSyncPlugin" />
       </list>
     </property>
 
@@ -39,5 +37,6 @@
   <!-- engine plugin beans -->
   <bean id="connectProcessEnginePlugin" class="org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin" />
   <bean id="spinProcessEnginePlugin" class="org.camunda.spin.plugin.impl.SpinProcessEnginePlugin" />
+  <bean id="variableSyncPlugin" class="org.camunda.bpm.unittest.issue2593.VariableSyncEnginePlugin" />
 
 </beans>

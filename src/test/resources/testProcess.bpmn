@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="_7FrToMrfEeOyYYI9xhG4Cw" targetNamespace="http://camunda.org/schema/1.0/bpmn" exporter="Camunda Modeler" exporterVersion="5.15.1" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="_7FrToMrfEeOyYYI9xhG4Cw" targetNamespace="http://camunda.org/schema/1.0/bpmn" exporter="Camunda Modeler" exporterVersion="5.38.1" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:process id="testProcess" isExecutable="true" camunda:historyTimeToLive="180">
-    <bpmn2:startEvent id="StartEvent_1">
-      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    <bpmn2:startEvent id="Event_1ajdj8x">
+      <bpmn2:outgoing>Flow_02gi43a</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:userTask id="UserTask_1" name="Handle &#10;Request">
-      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    <bpmn2:userTask id="UserTask_1" name="Wait State">
+      <bpmn2:incoming>Flow_02gi43a</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0fit0om</bpmn2:outgoing>
     </bpmn2:userTask>
-    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent_1" targetRef="UserTask_1" />
-    <bpmn2:endEvent id="EndEvent_1">
-      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+    <bpmn2:intermediateCatchEvent id="conditionCatchEvent" name="Catch condition">
+      <bpmn2:incoming>Flow_0fit0om</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1t70bh2</bpmn2:outgoing>
+      <bpmn2:conditionalEventDefinition id="ConditionalEventDefinition_1bl3l16" camunda:variableName="conditionVariable" camunda:variableEvents="">
+        <bpmn2:condition xsi:type="bpmn2:tFormalExpression">${conditionVariable == 'true'}</bpmn2:condition>
+      </bpmn2:conditionalEventDefinition>
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:endEvent id="Event_1e9oi6s">
+      <bpmn2:incoming>Flow_1t70bh2</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="UserTask_1" targetRef="EndEvent_1" />
+    <bpmn2:sequenceFlow id="Flow_02gi43a" sourceRef="Event_1ajdj8x" targetRef="UserTask_1" />
+    <bpmn2:sequenceFlow id="Flow_0fit0om" sourceRef="UserTask_1" targetRef="conditionCatchEvent" />
+    <bpmn2:sequenceFlow id="Flow_1t70bh2" sourceRef="conditionCatchEvent" targetRef="Event_1e9oi6s" />
   </bpmn2:process>
+  <bpmn2:message id="Message_1l9p5ck" name="Message" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="testProcess">
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_3" bpmnElement="StartEvent_1">
-        <dc:Bounds x="247" y="204" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_1ajdj8x_di" bpmnElement="Event_1ajdj8x">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_UserTask_2" bpmnElement="UserTask_1">
-        <dc:Bounds x="333" y="182" width="100" height="80" />
+        <dc:Bounds x="240" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_3" targetElement="_BPMNShape_UserTask_2">
-        <di:waypoint xsi:type="dc:Point" x="283" y="222" />
-        <di:waypoint xsi:type="dc:Point" x="333" y="222" />
+      <bpmndi:BPMNShape id="Event_1qttwmk_di" bpmnElement="conditionCatchEvent">
+        <dc:Bounds x="412" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="392" y="145" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1e9oi6s_di" bpmnElement="Event_1e9oi6s">
+        <dc:Bounds x="532" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_02gi43a_di" bpmnElement="Flow_02gi43a">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="240" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_2" bpmnElement="EndEvent_1">
-        <dc:Bounds x="483" y="204" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_UserTask_2" targetElement="_BPMNShape_EndEvent_2">
-        <di:waypoint xsi:type="dc:Point" x="433" y="222" />
-        <di:waypoint xsi:type="dc:Point" x="483" y="222" />
+      <bpmndi:BPMNEdge id="Flow_0fit0om_di" bpmnElement="Flow_0fit0om">
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="412" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1t70bh2_di" bpmnElement="Flow_1t70bh2">
+        <di:waypoint x="448" y="120" />
+        <di:waypoint x="532" y="120" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
